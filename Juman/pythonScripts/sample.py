@@ -2,7 +2,6 @@ import sys
 import os
 from os import listdir, path
 from os.path import isfile
-# import joblib
 from pyknp import Jumanpp
 from gensim import models
 from gensim.models.doc2vec import LabeledSentence
@@ -10,10 +9,6 @@ from gensim.models.doc2vec import LabeledSentence
 MODEL_DIR = 'model/'
 PRE_TRAIN_MODEL_PATH = 'model/doc2vec.model'
 SAMPLE_TEXT_ROOT_DIR = 'text/'
-
-# 前処理が長いので保存。新しい文書を追加した場合はファイルを削除してください
-# SENTENCES_DIR = 'sentences/'
-# SENTENCES_LIST_JOBLIB = SENTENCES_DIR + 'sentenses_list.joblib'
 
 def corpus_files():
     dirs = [path.join(SAMPLE_TEXT_ROOT_DIR, x)
@@ -41,19 +36,6 @@ def corpus_to_sentences(corpus):
         yield doc_to_sentence(doc, name)
 
 corpus = corpus_files()
-# if not os.path.exists(SENTENCES_DIR):
-#     os.mkdir(SENTENCES_DIR)
-# if isfile(SENTENCES_LIST_JOBLIB):
-#     sentences = joblib.load(SENTENCES_LIST_JOBLIB)
-#     print('load sentences from joblib dump')
-# else:
-#     sentences = corpus_to_sentences_list(corpus)
-#     joblib.dump(sentences, SENTENCES_LIST_JOBLIB, compress=3)
-# sentences = corpus_to_sentences(corpus)
-# sentences = []
-# print(type(sentences))
-# for i in range(len(corpus)):
-#     sentences.append(corpus_to_sentences(corpus[i]))
 sentences = corpus_to_sentences(corpus)
 
 if not os.path.exists(MODEL_DIR):
