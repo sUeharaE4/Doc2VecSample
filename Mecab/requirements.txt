@@ -1,0 +1,4 @@
+Django
+gensim
+joblib
+mecab-python3
