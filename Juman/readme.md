@@ -5,7 +5,7 @@ JUMAN++, gensimをエンジンとしたDoc2Vecのサンプル。Buildすると17
 docker-compose build
   
 を実行すればOKです。必要なものはインストールして、すでに学習済みのモデルを使って類似度を返すまでがbuildに含まれます。
-build後はコンテナに入ってsample.pyを叩いてください。後述しますが、docker-compose up しても何も起こりません。。  
+build後はコンテナに入って pythonScripts/sample.py を叩いてください。後述しますが、docker-compose up しても何も起こりません。。  
 docker imagesでイメージID確認して、 docker run -it イメージID bash でコンテナに入って叩いてください(不便ですみませんが、あくまで動作確認なので。)
 
 ## 学習データのディレクトリ構成
